@@ -120,42 +120,59 @@ namespace _021101106
 
 
             int[] a = { 10, 5, 1, 3, 4, 15, 1, 7, 8, 12 };
-            int[] b = { 2,8,4,56,4,11,54,26,100,5 };
+            int[] b = { 2, 8, 4, 56, 4, 11, 54, 26, 100, 5 };
+            int[] ac = (int[])a.Clone();
 
-            Sort.InterchangeSort(a, a.Length);
             Console.Write("\n\n Mang sap xep tang theo giai thuat truc tiep la:\t");
-            DisplayElements(a, a.Length);
-
-
+            Sort.InterchangeSort(a, a.Length);
+            Sort.DisplayElements(a, a.Length);
             Console.WriteLine("\n--------------------------------------------");
 
+            Console.Write("\n\n Mang sap xep tang theo giai thuat noi bot tang dan la:\t");
             Sort.BubbleSort(b, b.Length);
-            Console.Write("\n\n Mang sap xep tang theo giai thuat noi bot la:\t");
-            DisplayElements(b, b.Length);
-
-
+            Sort.DisplayElements(b, b.Length);
             Console.WriteLine("\n--------------------------------------------");
 
+            Console.Write("\n\n Mang sap xep tang theo giai thuat noi bot giam dan la:\t");
+            Sort.BubbleSortDecrease(b, b.Length);
+            Sort.DisplayElements(b, b.Length);
+            Console.WriteLine("\n--------------------------------------------");
+
+            Console.Write("\n\n Mang sap xep tang theo giai thuat rung lac la:\t");
+            Sort.ShakerSort(ac, ac.Length);
+            Sort.DisplayElements(ac, ac.Length);
+
+            Console.WriteLine("\n--------------------------------------------");
+            Console.Write("\n\n Mang sap xep tang theo giai thuat chen tang dan la:\t");
+            Sort.InsertionSort(ac, ac.Length);
+            Sort.DisplayElements(ac, ac.Length);
+            Console.WriteLine("\n--------------------------------------------");
+            Console.Write("\n\n Mang sap xep tang theo giai thuat chen giam dan la:\t");
+            Sort.InsertionSortDecrease(ac, ac.Length);
+            Sort.DisplayElements(ac, ac.Length);
+
+            Console.WriteLine("\n--------------------------------------------");
+            Console.Write("\n\n Mang sap xep tang theo giai thuat sap xep chon tang dan la:\t");
+            Sort.SelectionSort(ac, ac.Length);
+            Sort.DisplayElements(ac, ac.Length);
+
+            Console.WriteLine("\n--------------------------------------------");
+            Console.Write("\n\n Mang sap xep tang theo giai thuat sap xep chon giam dan la:\t");
+            Sort.SelectionSortDecrease(ac, ac.Length);
+            Sort.DisplayElements(ac, ac.Length);
+
+            Console.WriteLine("\n--------------------------------------------");
+            Console.Write("\n\n Mang sap xep tang theo giai thuat sap xep nhanh la:\t");
+            Sort.QuickSort(ac,0,ac.Length-1);
+            Sort.DisplayElements(ac, ac.Length);
+
+            Console.WriteLine("\n--------------------------------------------");
+            Console.Write("\n\n Mang sap xep tang theo giai thuat sap xep vun dong la:\t");
+            Sort.HeapSort(ac, ac.Length - 1);
+            Sort.DisplayElements(ac, ac.Length);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            Console.Read();
-
+             Console.Read();
         }
     }
 }

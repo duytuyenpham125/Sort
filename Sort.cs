@@ -109,12 +109,12 @@ namespace Sorter
             int temp;
             int imin;
             int k = 1;
-            for (int i = 0; i < N-1; i++)
+            for (int i = 0; i < N - 1; i++)
             {
                 imin = i;
-                for (int j = i+1; j < N; j++)
+                for (int j = i + 1; j < N; j++)
                 {
-                     if (arr[j] < arr[imin])
+                    if (arr[j] < arr[imin])
                         imin = j;
                 }
                 temp = arr[i];
@@ -140,18 +140,18 @@ namespace Sorter
                 arr[imax] = temp;
                 Console.WriteLine($"\n Vong lap {k++}: " + string.Join(",", arr));
             }
-                    
-            
+
+
         }
         static public void InsertionSort(int[] arr, int N)
         {
-            int j, x ;
+            int j, x;
             int k = 1;
             for (int i = 1; i < N; i++)
             {
                 x = arr[i];
                 j = i - 1;
-                while (j>=0 && arr[j] > x)
+                while (j >= 0 && arr[j] > x)
                 {
                     arr[j + 1] = arr[j];
                     j--;
@@ -183,7 +183,7 @@ namespace Sorter
             int x = arr[(left + right) / 2];
             int i = left;
             int j = right;
-            while (i< j)
+            while (i < j)
             {
                 while (arr[i] < x)
                     i++;
@@ -210,7 +210,7 @@ namespace Sorter
             int saved = arr[iRoot];
             int i = iRoot;
             int j = 2 * i + 1;
-            while(j<=iEnd)
+            while (j <= iEnd)
             {
                 if ((j + 1 <= iEnd) && arr[j] <= arr[j + 1])
                     j += 1;
@@ -257,6 +257,150 @@ namespace Sorter
 
             }
             Console.Write("\n 2.Mang sau khi sap xep: ", arr);
+        }
+       
+
+    }
+
+    class Search
+    {
+        public static int SeqSearch(int[] a, int N, int X)
+        {
+
+            for (int i = 0; i <N; i++)
+            {
+                if (a[i] == X)
+                    return i;
+
+            }
+            return -1;
+
+        }
+        public static int SeqSearchAtLast(int[] a, int N, int X)
+        {
+            for (int i = N-1; i >= 0; i--)
+            {
+                if (a[i] == X)
+                    return i;
+            }
+            return -1;
+        }
+        public static int SeqSearchAllX(int[] a, int N, int X)
+        {
+            int dem = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] == X)
+                    dem += 1;
+
+            }
+            return dem;
+        }
+        public static int SeqSearchFindFirstMin(int[] a, int N)
+        {
+            int Min = 999999;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] < Min)
+                    Min = a[i];
+
+            }
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] == Min)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public static int SeqSearchFindLastMax(int[] a, int N)
+        {
+            int Max = -999999;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] > Max)
+                    Max = a[i];
+
+            }
+            for (int i = N-1; i >0; i--)
+            {
+                if (a[i] == Max)
+                    return i;
+            }
+            return -1;
+        }
+        public static int SeqSearchAllMin(int[] a, int N)
+        {
+            int Min = 999999;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] < Min)
+                    Min = a[i];
+
+            }
+            int dem = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] == Min)
+                    dem += 1;
+
+            }
+            return dem;
+        }
+        public static int SeqSearchFirstMaxEven(int[] a, int N)
+        {
+            int Max = -999999;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] % 2 != 0 && a[i] > Max)
+                    Max = a[i];
+
+            }
+
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] == Max)
+                    return i;
+
+            }
+            return -1;
+        }
+        public static int SeqSearchLastOdd(int[] a, int N)
+        {
+            int Min = 999999;
+            for (int i = 0; i < N; i++)
+            {
+                if (a[i] % 2 == 0 && a[i] < Min)
+                    Min = a[i];
+
+            }
+
+            for (int i = N-1; i >0; i--)
+            {
+                if (a[i] == Min)
+                    return i;
+
+            }
+            return -1;
+        }
+
+        public static int BinSearch(int[] a, int N, int X)
+        {
+            int low, up, mid;
+            low = 0;
+            up = N - 1;
+            while (low <= up)
+            {
+                mid = (int)(low + up) / 2;
+                if (X == a[mid])
+                    return mid;
+                else
+                    if (X < a[mid])
+                    up = mid - 1;
+                else low = mid + 1;
+            }
+            return -1;
         }
     }
 }
